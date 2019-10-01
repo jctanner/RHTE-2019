@@ -33,7 +33,8 @@
 
     ```
     mkdir -p ansible_collections/rhte/2019/tests/integration/targets/module_noop/tasks
-    cp examples/integration_module_noop.yml ansible_collections/rhte/2019/tests/integration/targets/module_noop/tasks/main.yml
+    cp examples/integration_module_noop.yml \
+        ansible_collections/rhte/2019/tests/integration/targets/module_noop/tasks/main.yml
     cd ansible_collections/rhte/2019
     ansible-test integration --docker=default
     ```
