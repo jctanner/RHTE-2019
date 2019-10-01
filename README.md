@@ -22,24 +22,22 @@
 3. create a simple no-op module
 
     ```
-    cp examples/module_noop.py rhte/2019/plugins/modules/.
+    mkdir plugins/modules
+    cp ../../../examples/module_noop.py plugins/modules/.
     ```
 
 4. ansible-test sanity
 
     ```
-    cd ansible_collections/rhte/2019
     ansible-test sanity --docker=default
     ```
 
 5. ansible-test units 
 
     ``` 
-    mkdir -p ansible_collections/rhte/2019/tests/unit
-    cp examples/unit_module_noop.py \
-        ansible_collections/rhte/2019/tests/unit/test_module_noop.py
-    cd ansible_collections/rhte/2019
-    ansible-test unit --docker=default
+    mkdir -p tests/unit
+    cp ../../../examples/unit_module_noop.py tests/unit/test_module_noop.py
+    ansible-test units --docker=default --python=3.6
     ```
 
 6. ansible-test integration
