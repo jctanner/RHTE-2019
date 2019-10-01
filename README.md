@@ -37,17 +37,16 @@
     ``` 
     mkdir -p tests/unit
     cp ../../../examples/unit_module_noop.py tests/unit/test_module_noop.py
-    ansible-test units --docker=default --python=3.6
+    ansible-test units --docker=default --python=3.6 --coverage
     ```
 
 6. ansible-test integration
 
     ```
-    mkdir -p ansible_collections/rhte/2019/tests/integration/targets/module_noop/tasks
-    cp examples/integration_module_noop.yml \
-        ansible_collections/rhte/2019/tests/integration/targets/module_noop/tasks/main.yml
-    cd ansible_collections/rhte/2019
-    ansible-test integration --docker=default
+    mkdir -p tests/integration/targets/module_noop/tasks
+    cp ../../../examples/integration_module_noop.yml \
+        tests/integration/targets/module_noop/tasks/main.yml
+    ansible-test integration --docker=default --python=3.6 --coverage
     ```
 
 7. ansible-galaxy collection build
