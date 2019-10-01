@@ -17,6 +17,7 @@
     ansible-galaxy collection init rhte.2019
     cd rhte/2019
     git init .
+    cat galaxy.yml
     ```
 
 3. create a simple no-op module
