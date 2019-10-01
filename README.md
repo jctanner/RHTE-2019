@@ -15,6 +15,8 @@
     mkdir ansible_collections
     cd ansible_collections
     ansible-galaxy collection init rhte.2019
+    cd rhte/2019
+    git init .
     ```
 
 3. create a simple no-op module
@@ -33,7 +35,9 @@
 5. ansible-test units 
 
     ``` 
-    mkdir -p ansible_collections/rhte/2019/tests/units
+    mkdir -p ansible_collections/rhte/2019/tests/unit
+    cp examples/unit_module_noop.py \
+        ansible_collections/rhte/2019/tests/unit/test_module_noop.py
     cd ansible_collections/rhte/2019
     ansible-test unit --docker=default
     ```
@@ -49,6 +53,14 @@
     ```
 
 7. ansible-galaxy collection build
+
+    ```
+    ansible-galaxy collection build
+    tar tzvf rhte-2019-1.0.0.tar.gz
+    tar -xzvf rhte-2019-1.0.0.tar.gz MANIFEST.json
+    cat MANIFEST.json
+    ```
+
 8. ansible-galaxy collection publish
 9. ansible-galaxy collection install
 10. ansible-playbook ...
