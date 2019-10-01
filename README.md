@@ -27,13 +27,21 @@
     cp ../../../examples/module_noop.py plugins/modules/.
     ```
 
-4. ansible-test sanity
+4. create a simple role
+
+    ```
+    mkdir -p roles/lunchtime/tasks
+    cp ../../../examples/examples/role_lunchtime.yml roles/lunchtime/tasks/main.yml
+    ```
+
+
+5. ansible-test sanity
 
     ```
     ansible-test sanity --docker=default
     ```
 
-5. ansible-test units 
+6. ansible-test units 
 
     ``` 
     mkdir -p tests/unit
@@ -41,16 +49,21 @@
     ansible-test units --docker=default --python=3.6 --coverage
     ```
 
-6. ansible-test integration
+7. ansible-test integration
 
     ```
     mkdir -p tests/integration/targets/module_noop/tasks
     cp ../../../examples/integration_module_noop.yml \
         tests/integration/targets/module_noop/tasks/main.yml
+
+    mkdir -p tests/integration/targets/role_lunchtime/tasks
+    cp ../../../examples/integration_role_lunchtime.yml \
+        tests/integration/targets/role_lunchtime/tasks/.
+
     ansible-test integration --docker=default --python=3.6 --coverage
     ```
 
-7. ansible-galaxy collection build
+8. ansible-galaxy collection build
 
     ```
     ansible-galaxy collection build
@@ -59,7 +72,7 @@
     cat MANIFEST.json
     ```
 
-8. ansible-galaxy collection publish
-9. ansible-galaxy collection install
-10. ansible-playbook ...
+9. ansible-galaxy collection publish
+10. ansible-galaxy collection install
+11. ansible-playbook ...
 
