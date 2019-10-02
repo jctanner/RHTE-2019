@@ -73,6 +73,50 @@
     ```
 
 9. ansible-galaxy collection publish
+
 10. ansible-galaxy collection install
+
+    ```
+    ansible-galaxy collection install rhte-2019-1.0.0.tar.gz
+    ```
+
 11. ansible-playbook ...
+
+    # unqualified names
+    ```
+    cd /tmp
+
+    echo "- hosts: localhost" > testplay.yml
+    echo "  gather_facts: False" >> testplay.yml
+    echo "  tasks:" >> testplay.yml
+    echo "    - module_noop:" >> testplay.yml
+
+    ansible-playbook -vvvv testplay.yml
+    ```
+
+    # FQN usage
+    ```
+    cd /tmp
+
+    echo "- hosts: localhost" > testplay.yml
+    echo "  gather_facts: False" >> testplay.yml
+    echo "  tasks:" >> testplay.yml
+    echo "    - rhte.2019.module_noop:" >> testplay.yml
+
+    ansible-playbook -vvvv testplay.yml
+    ```
+
+    # collections keyword + unqualified names
+    ```
+    cd /tmp
+
+    echo "- hosts: localhost" > testplay.yml
+    echo "  gather_facts: False" >> testplay.yml
+    echo "  collections:" >> testplay.yml
+    echo "    - rhte.2019" >> testplay.yml
+    echo "  tasks:" >> testplay.yml
+    echo "    - module_noop:" >> testplay.yml
+
+    ansible-playbook -vvvv testplay.yml
+    ```
 
