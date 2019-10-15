@@ -45,7 +45,7 @@ https://github.com/ansible/ansibullbot/commits?author=jctanner
 5. ansible-test sanity
 
     ```
-    ansible-test sanity --docker=default
+    ansible-test sanity --docker=default --docker-no-pull
     ```
 
 6. ansible-test units 
@@ -53,7 +53,7 @@ https://github.com/ansible/ansibullbot/commits?author=jctanner
     ``` 
     mkdir -p tests/unit
     cp ../../../examples/unit_module_noop.py tests/unit/test_module_noop.py
-    ansible-test units --docker=default --python=3.6 --coverage
+    ansible-test units --docker=default --python=3.6 --coverage --docker-no-pull
     ```
 
 7. ansible-test integration
@@ -67,7 +67,7 @@ https://github.com/ansible/ansibullbot/commits?author=jctanner
     cp ../../../examples/integration_role_lunchtime.yml \
         tests/integration/targets/role_lunchtime/tasks/.
 
-    ansible-test integration --docker=default --python=3.6 --coverage
+    ansible-test integration --docker=default --python=3.6 --coverage --docker-no-pull
     ```
 
 8. ansible-galaxy collection build
