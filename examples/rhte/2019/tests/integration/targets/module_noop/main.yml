@@ -1,0 +1,9 @@
+- name: run module
+  rhte.2019.module_noop:
+  register: result
+
+- debug: var=result
+
+- assert:
+    that:
+        - 'result.foo == "bar"'

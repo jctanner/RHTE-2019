@@ -1,0 +1,6 @@
+- include_role:
+    name: rhte.2019.lunchtime
+
+- assert:
+    that:
+        - 'dessert == "pie"'
