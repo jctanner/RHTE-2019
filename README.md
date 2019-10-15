@@ -10,9 +10,9 @@ Seriously though, I'm a long term contributor to ansible (top 10 for a long time
 
 My contributions were typically in places that most people wouldn't see or notice, but were helpful to almost all users. I won't list them out, but if you are curious ...
 
-https://github.com/jctanner
-https://github.com/ansible/ansible/commits?author=jctanner
-https://github.com/ansible/ansibullbot/commits?author=jctanner
+* https://github.com/jctanner
+* https://github.com/ansible/ansible/commits?author=jctanner
+* https://github.com/ansible/ansibullbot/commits?author=jctanner
 
 Now on to the demo ...
 
