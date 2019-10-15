@@ -16,7 +16,7 @@ https://github.com/ansible/ansibullbot/commits?author=jctanner
     source venv/bin/activate
     ```
 
-2. ansible-galaxy init collection
+2. ansible-galaxy init collection [example]
 
     ```
     mkdir ansible_collections
@@ -27,50 +27,51 @@ https://github.com/ansible/ansibullbot/commits?author=jctanner
     cat galaxy.yml
     ```
 
-3. create a simple no-op module
+3. shortcut ...
 
     ```
-    mkdir plugins/modules
-    cp ../../../examples/module_noop.py plugins/modules/.
+    rm -rf /tmp/ansible_collections
+    mkdir -p /tmp/ansible_collections
+    cp -Rp examples/rhte /tmp/ansible_collections/.
+    cd /tmp/ansible_collections/rhte/2019
+
+4. the no-op module
+
+    ```
+    cat plugins/modules/module_noop.py
     ```
 
-4. create a simple role
+5. a simple role
 
     ```
-    mkdir -p roles/lunchtime/tasks
-    cp ../../../examples/examples/role_lunchtime.yml roles/lunchtime/tasks/main.yml
+    cat roles/lunchtime/tasks/main.yml
     ```
 
 
-5. ansible-test sanity
+6. ansible-test sanity
 
     ```
     ansible-test sanity --docker=default --docker-no-pull
     ```
 
-6. ansible-test units 
+7. ansible-test units 
 
     ``` 
-    mkdir -p tests/unit
-    cp ../../../examples/unit_module_noop.py tests/unit/test_module_noop.py
+    cat tests/unit/test_module_noop.py
     ansible-test units --docker=default --python=3.6 --coverage --docker-no-pull
     ```
 
-7. ansible-test integration
+8. ansible-test integration
 
     ```
-    mkdir -p tests/integration/targets/module_noop/tasks
-    cp ../../../examples/integration_module_noop.yml \
-        tests/integration/targets/module_noop/tasks/main.yml
+    cat tests/integration/targets/module_noop/tasks/main.yml
 
-    mkdir -p tests/integration/targets/role_lunchtime/tasks
-    cp ../../../examples/integration_role_lunchtime.yml \
-        tests/integration/targets/role_lunchtime/tasks/.
+    cat tests/integration/targets/role_lunchtime/tasks/main.yml
 
     ansible-test integration --docker=default --python=3.6 --coverage --docker-no-pull
     ```
 
-8. ansible-galaxy collection build
+9. ansible-galaxy collection build
 
     ```
     ansible-galaxy collection build
@@ -79,15 +80,15 @@ https://github.com/ansible/ansibullbot/commits?author=jctanner
     cat MANIFEST.json
     ```
 
-9. ansible-galaxy collection publish
+10. ansible-galaxy collection publish
 
-10. ansible-galaxy collection install
+11. ansible-galaxy collection install
 
     ```
     ansible-galaxy collection install rhte-2019-1.0.0.tar.gz
     ```
 
-11. ansible-playbook ...
+12. ansible-playbook ...
 
     # unqualified names
     ```
