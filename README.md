@@ -154,6 +154,10 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 8. ansible-test integration
 
 
+	The last set of tests are integration. This will actually flex the module and role to make sure they really do what they're advertised to do. We get to use playbooks here and we refer to the set of playbooks in each integration test as a "target". We'll probably see these types of tests most often in collections because they are they lowest barrier to entry for tests which are not reliant on third party resources.
+
+	"third party resources" ... PC LOAD LETTER!? ... I mean expensive/proprietary/slow/irritating infrastructure like public clouds, on-prem  virt-*cough* "clouds", black boxes, blue boxes (not really, but that would be neat!).
+
 
     ```
     cat tests/integration/targets/module_noop/tasks/main.yml
@@ -165,8 +169,16 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 
 9. ansible-galaxy collection build
 
+	Now we venture into a new concept for collections... BUILD. Roles on galaxy are currently indexes to a github repo. The install process fetches the source tarball from github rather than galaxy. In the collection world, galaxy now hosts the release tarballs as an "artifact" and no longer has a mandatory link to a github repo. To make the tarballs, we run ansible-galaxy collection build from inside the collection. 
+
+
     ```
     ansible-galaxy collection build
+    ```
+
+	Notice the tarball it leaves behind ... let's inspect it's content ...
+
+	```
     tar tzvf rhte-2019-1.0.0.tar.gz
     tar -xzvf rhte-2019-1.0.0.tar.gz MANIFEST.json
     cat MANIFEST.json
@@ -174,6 +186,7 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 
 10. ansible-galaxy collection publish
 
+	To get the tarball on galaxy for everyone else to use, we need to run the "publish" subcommand. There's nothing special about this really, it's just an HTTP POST that uploads the tarball and waits for the server to process the content and do some minimal static analysis with ansible-lint. Let's not actually run it and move on ...
 
 
 11. ansible-galaxy collection install
