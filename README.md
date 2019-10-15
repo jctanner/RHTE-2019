@@ -114,20 +114,36 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 5. a simple role
 
 
+    In the immortal words of Andrius ... "this is how we role".
+
     ```
     cat roles/lunchtime/tasks/main.yml
     ```
+
+    Collections can also contain roles (we've said this right?); a caveat ... you can not put plugins in those roles. Plugins must live in the top level plugins folder of the collection, otherwise it's still a boring ol' role.
 
 
 6. ansible-test sanity
 
 
+    Okay, now we're going to do something that in the past would have only been seen by folks who contribute to ansible/ansible.
+
+    Sanity is a collection of static code linters and code analyzers that the core team and the community have built up over the years to assert that modules avoid certain gotchas and adhere to the coding styles that we need* to enforce (because of previous bugs and py2/3 compat). 
+
+    These tests are available in 2.9.0 through a special command named "ansible-test". This command is quite powerful and has more bells and whistles than even I know about, but you can see a recording of Matt Clay's (the author's) ansiblefest presentation on the ansible website for a deeper dive.
+
     ```
-    ansible-test sanity --docker=default --docker-no-pull
+    ansible-test --help
+    ansible-test sanity --docker=default --python=3.6 --docker-no-pull
     ```
+
+    We're hoping this becomes part of the import process within galaxy very soon.
+
 
 7. ansible-test units 
 
+
+    This again is something that typically is only seen by ansible contributors, but is a very important part of ensuring that the plugins are functional. It's the fastest way to verify oddball edgecases in a module in a short amount of time at the lowest cost possible.
 
     ``` 
     cat tests/unit/test_module_noop.py
@@ -136,6 +152,8 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 
 
 8. ansible-test integration
+
+
 
     ```
     cat tests/integration/targets/module_noop/tasks/main.yml
