@@ -189,14 +189,26 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 	To get the tarball on galaxy for everyone else to use, we need to run the "publish" subcommand. There's nothing special about this really, it's just an HTTP POST that uploads the tarball and waits for the server to process the content and do some minimal static analysis with ansible-lint. Let's not actually run it and move on ...
 
 
-11. ansible-galaxy collection install
+11. BREAK!!!
 
+Alright, let's recap what we've just done ... we created a brand new collection from scratch, we put some things into it, we tested those things and we tar'ed it up and sent it to galaxy.
+
+Now as the end user / customer ... we need to figure out how to get that thing and get it working ...
+
+
+12. ansible-galaxy collection install
+
+
+    For the sake of time, and network overlords and conference wifi, we're going to install the tarball directly from disk and ignore the remote galaxy service. Note that we could also point the install at an http file server and get the same result, as long as no dependencies are required. Speaking of dependencies ... this is a big reason you'll want to use real galaxy and automation hub going forward. The dependencies could be numerous and you don't want to find yourself back in the days of building rpm dependency hell. Use the "network'ed" package manager as it was designed to be used ..
 
     ```
     ansible-galaxy collection install rhte-2019-1.0.0.tar.gz
     ```
 
-12. ansible-playbook ...
+13. ansible-playbook ...
+
+    Now that we've got the thing installed, we need to make use of it ... via a simple playbook. I'm going to show you some expected errors to help reinforce some of the new language/semantics ...
+
 
     # unqualified names
     ```
@@ -236,3 +248,8 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
     ansible-playbook -vvvv testplay.yml
     ```
 
+
+
+That's about it ... but wait ... I said i'd tie this back to point-n-click *cough*, I mean ansible tower right? Okay, so the first iteration of tower (3.6) is going to operate almost identical to how it currently operates with roles and requirements.yml. If requirements.yml is found, tower's project-sync playbook will install the collections from that file automatically at job launch time. That gets us the simplest MVP possible. Obviously collections do a lot more than roles and we be awesome as something more "1st class" in tower ... we'll get there in time.
+
+There we have it ... collections in a nutshell.
