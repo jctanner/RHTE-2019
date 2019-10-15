@@ -1,5 +1,12 @@
 # RHTE-2019
 
+# WHOAMI
+
+https://github.com/jctanner
+https://github.com/ansible/ansible/commits?author=jctanner
+https://github.com/ansible/ansibullbot/commits?author=jctanner
+
+
 # DEMO
 
 1. prepare the env
