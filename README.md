@@ -45,7 +45,9 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
     source venv/bin/activate
     ```
 
-2. If you've ever used the ansible-galaxy CLI to "init" a role, this next step should be very similar ...
+2. ansible-galaxy collection
+
+    If you've ever used the ansible-galaxy CLI to "init" a role, this next step should be very similar ...
 
 
 	```
@@ -191,9 +193,9 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 
 11. BREAK!!!
 
-Alright, let's recap what we've just done ... we created a brand new collection from scratch, we put some things into it, we tested those things and we tar'ed it up and sent it to galaxy.
+    Alright, let's recap what we've just done ... we created a brand new collection from scratch, we put some things into it, we tested those things and we tar'ed it up and sent it to galaxy.
 
-Now as the end user / customer ... we need to figure out how to get that thing and get it working ...
+    Now as the end user / customer ... we need to figure out how to get that thing and get it working ...
 
 
 12. ansible-galaxy collection install
