@@ -99,9 +99,16 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 4. the no-op module
 
 
+    To save you all from a lesson in python and module development, I've created a "null module". It's sole job is to look and behave like a module, but not to actually do anything.
+
     ```
     cat plugins/modules/module_noop.py
     ```
+
+    If you really want to learn module dev, I have another link for you to peruse ...
+
+
+    https://tannerjc.net/wiki/index.php?title=Ansible_Developer_Filament
 
 
 5. a simple role
