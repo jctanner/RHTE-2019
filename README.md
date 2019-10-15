@@ -252,6 +252,6 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 
 
 
-That's about it ... but wait ... I said i'd tie this back to point-n-click *cough*, I mean ansible tower right? Okay, so the first iteration of tower (3.6) is going to operate almost identical to how it currently operates with roles and requirements.yml. If requirements.yml is found, tower's project-sync playbook will install the collections from that file automatically at job launch time. That gets us the simplest MVP possible. Obviously collections do a lot more than roles and we be awesome as something more "1st class" in tower ... we'll get there in time.
+DONE! ... but wait ... I said i'd tie this back to point-n-click *cough*, I mean ansible tower right? Okay, so the first iteration of tower (3.6) is going to operate almost identical to how it currently operates with roles and requirements.yml. If requirements.yml is found, tower's project-sync playbook will install the collections from that file automatically at job launch time. That gets us the simplest MVP possible. Obviously collections do a lot more than roles and it be awesome to have something more "1st class" in tower with some lifecycle management of the collections ... we'll get there in time.
 
 There we have it ... collections in a nutshell.
