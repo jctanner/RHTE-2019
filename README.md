@@ -81,6 +81,9 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 	tree rhte
     ```
 
+    Not much to it really. It shouldn't be rocket science because that's the opposite of what we want ansible to be.
+
+
 3. 88 miles per hour shortcut ...
 
 
