@@ -54,16 +54,6 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
 	ansible-galaxy --help
 	```
 
-
-	What's this "collection" subcommand all about you ask? Well, we had a choice to make:
-    ```
-	* productize an experimental project called "mazer" in a short window of time
-	* break backwards compat with ansible-galaxy install to support collections
-	* merge mazer's functionality into ansible-galaxy as a new subcommand by 2.9.0 GA
-    ```
-	We chose the latter for numerous reasons and here it is ...
-
-
 	```
 	ansible-galaxy collection --help
 	```
