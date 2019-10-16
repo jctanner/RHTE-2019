@@ -221,7 +221,19 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
     echo "  tasks:" >> testplay.yml
     echo "    - module_noop:" >> testplay.yml
 
-    ansible-playbook -vvvv testplay.yml
+
+	(venv) [jtanner@jtx1 tmp]$ ansible-playbook -i 'localhost,' test.yml
+	ERROR! couldn't resolve module/action 'module_noop'. This often indicates a misspelling, missing collection, or incorrect module path.
+
+	The error appears to be in '/tmp/test.yml': line 5, column 8, but may
+	be elsewhere in the file depending on the exact syntax problem.
+
+	The offending line appears to be:
+
+	  tasks:
+		 - module_noop:
+		   ^ here
+
     ```
 
     # FQN usage
@@ -233,7 +245,18 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
     echo "  tasks:" >> testplay.yml
     echo "    - rhte.2019.module_noop:" >> testplay.yml
 
-    ansible-playbook -vvvv testplay.yml
+    (venv) [jtanner@jtx1 tmp]$ ansible-playbook -i 'localhost,' test.yml
+
+    PLAY [all] ************************************************************************************
+
+    TASK [rhte.2019.module_noop] ******************************************************************
+    ok: [localhost]
+
+    TASK [lunchtime : set_fact] *******************************************************************
+    ok: [localhost]
+
+    PLAY RECAP ************************************************************************************
+    localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
     ```
 
     # collections keyword + unqualified names
@@ -247,7 +270,19 @@ For those of you in the audience who are allergic to consoles, don't be afraid a
     echo "  tasks:" >> testplay.yml
     echo "    - module_noop:" >> testplay.yml
 
-    ansible-playbook -vvvv testplay.yml
+    (venv) [jtanner@jtx1 tmp]$ ansible-playbook -i 'localhost,' test.yml
+
+    PLAY [all] ************************************************************************************
+
+    TASK [rhte.2019.module_noop] ******************************************************************
+    ok: [localhost]
+
+    TASK [lunchtime : set_fact] *******************************************************************
+    ok: [localhost]
+
+    PLAY RECAP ************************************************************************************
+    localhost                  : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0  
+
     ```
 
 
